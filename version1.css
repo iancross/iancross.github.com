@@ -1,0 +1,11 @@
+body {
+	color: white;
+	background-color: black;
+}
+p, h1, h2 {
+	font-size: 24px;
+	margin-left: 25%
+}
+.itunes {
+	background-color:orange;
+}
