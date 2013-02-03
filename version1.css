@@ -1,11 +1,19 @@
+head { 
+	font-size: 28px;
+}
+	
 body {
 	color: white;
-	background-color: black;
+	background: url(Background.jpg)
+}
+a:link{
+	color: white;
+	font-size: 40px;
+	position: relative;
+	top:-300px;
+	left: 50px;
+		
 }
 p, h1, h2 {
 	font-size: 24px;
-	margin-left: 25%
-}
-.itunes {
-	background-color:orange;
 }
