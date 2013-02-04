@@ -11,18 +11,17 @@ a:link{
 	font-size: 40px;
 }
 
-.resume a:link{
-	position: absolute;
-	margin-left: 1%;
-	margin-top: 15%;
+h2 {
+	font-size: 14px;
+}
+#myHeader {
+	font-size: 40px;
 }
 
-.bio a:link{
-	position:absolute;
-	margin-left: 1%;
-	margin-top: 7<%;
+.Sections {
+	font-size:24px;
+	color: white;
 }
-
-p, h1, h2 {
-	font-size: 24px;
-}
+.job_title{
+	font-style: italic;
+	}
