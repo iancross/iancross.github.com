@@ -9,15 +9,18 @@ body {
 a:link{
 	color: white;
 	font-size: 40px;
-	}
-.resume a:link{
-	position: relative;
-	top:-300px;
-	left: 50px;		
 }
+
+.resume a:link{
+	position: absolute;
+	margin-left: 1%;
+	margin-top: 15%;
+}
+
 .bio a:link{
 	position:absolute;
-	top:200px;
+	margin-left: 1%;
+	margin-top: 7<%;
 }
 
 p, h1, h2 {
