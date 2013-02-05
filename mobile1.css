@@ -3,3 +3,15 @@ body {
 	color: white;
 }
 
+#BioPara{
+	width: 90%;
+	font-size: 20px;
+}
+
+a:link{
+	color: white;
+	font-size: 40px;
+}
+a:visited{
+	color: #7CFC00;
+}
