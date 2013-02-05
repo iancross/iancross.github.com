@@ -28,4 +28,8 @@ h2 {
 }
 .job_title{
 	font-style: italic;
-	}
+}
+
+#Bio.para{
+	width: 60%;
+}
