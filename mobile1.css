@@ -1,3 +1,7 @@
+head { 
+	font-size: 28px;
+	background: url(background_mobile.jpg)
+}
 body {
 	width: 90%;
 	color: white;
