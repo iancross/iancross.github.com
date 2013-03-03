@@ -25,6 +25,7 @@ function getCurrLoc(){
 			myLng = position.coords.longitude;
 			renderMap();
 		});
+	}	
 	else{
 		alert("Geolocation is not supported by your web browser.")
 	}
