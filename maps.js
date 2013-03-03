@@ -53,7 +53,7 @@ function plotRed(){
 		currStat = new google.maps.LatLng(42.284652,-71.064489);
 	  	marker = new google.maps.Marker({
 	    	position: currStat,
-	    	title: locsRed[index][1]
+	    	title: locsRed[index][2]
 	    	});
 	    marker.setMap(map)
 	}
