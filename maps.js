@@ -46,7 +46,7 @@ function renderMap(){
 }
 function plotRed(){
 	var marker, i
-	for (i = 0 i < locsRed.length i++) {  
+	for (i = 0; i < locsRed.length; i++) {  
 	  	marker = new google.maps.Marker({
 	    	position: new google.maps.LatLng(locsRed[i]),
 	    	map: map
