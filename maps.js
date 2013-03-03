@@ -18,6 +18,7 @@ function initialize(){
 
 		map = new google.maps.Map(document.getElementById													     ("map_canvas"),mapOptions);
 		getCurrLoc();
+		plotRed();
 		
 }
 function getCurrLoc(){
@@ -42,5 +43,13 @@ function renderMap(){
 	google.maps.event.addListener(marker, 'click', function() {
 		infowindow.setContent(marker.title);
 		infowindow.open(map,marker);
+	});
+}
+function plotRed(){
+	var marker, i;
+	for (i = 0; i < locsRed.length; i++) {  
+	  	marker = new google.maps.Marker({
+	    	position: new google.maps.LatLng(locsRed[i]),
+	    	map: map
 	});
 }
