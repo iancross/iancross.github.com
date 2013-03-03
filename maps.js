@@ -62,5 +62,9 @@ function plotRed(){
 	    	title: locsRed[index][2]
 	    	});
 	    marker.setMap(map)
+	    google.maps.event.addListener(marker, "click", function() {
+			infowindow.setContent(marker.title)
+			infowindow.open(map,marker)
+		})
 	}
 }
