@@ -54,4 +54,3 @@ function plotRed(){
 	    //	map: map
 	    	}
 	}
-}
