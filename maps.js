@@ -55,9 +55,10 @@ function plotRed(){
 	  	marker = new google.maps.Marker({
 	    	position: currStat,
 	    	icon: {
+		    	path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
 		    	strokeColor: "black",
 		    	scale: 3
-		    },
+		    	},
 	    	title: locsRed[index][2]
 	    	});
 	    marker.setMap(map)
