@@ -48,7 +48,7 @@ function renderMap(){
 function plotRed(){
 	var marker, i
 	for (var index in locsRed) { 
-		console.log("fuck yo titties");
+		console.log(index);
 		currStat = new google.maps.LatLng(locsRed[index][0]);
 	  	marker = new google.maps.Marker({
 	    	position: currStat,
