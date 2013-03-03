@@ -47,11 +47,9 @@ function renderMap(){
 }
 function plotRed(){
 	var marker, i
-	alert('fuck this shit')
-	for (var index in locsRed) {
-		alert('fuck');  
-	  	//marker = new google.maps.Marker({
-	    //	position: new google.maps.LatLng(locsRed[]),
-	    //	map: map
+	for (var index in locsRed) { 
+	  	marker = new google.maps.Marker({
+	    	position: new google.maps.LatLng(locsRed[index][0]),
+	    	map: map
 	    	}
 	}
