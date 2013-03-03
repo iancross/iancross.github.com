@@ -55,7 +55,7 @@ function plotRed(){
 	  	marker = new google.maps.Marker({
 	    	position: currStat,
 	    	icon: {
-		    	path: google.maps.SymbolPath.BACKWORD_CLOSED_ARROW,
+		    	path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
 		    	strokeColor: "black",
 		    	scale: 3
 		    	},
