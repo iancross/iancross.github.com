@@ -17,7 +17,7 @@ function initialize(){
 
 		map = new google.maps.Map(document.getElementById													     ("map_canvas"),mapOptions)
 		getCurrLoc()
-		parsed = JSON.parse(locsRed);
+		log.console('First Fuck');
 		plotRed();
 		
 }
