@@ -48,9 +48,11 @@ function renderMap(){
 function plotRed(){
 	var marker, i
 	for (var index in locsRed) { 
+		currStat = new google.maps.LatLng(locsRed[index][0]);
 	  	marker = new google.maps.Marker({
-	    	position: new google.maps.LatLng(locsRed[index][0]),
-	    	map: map
+	    	position: currStat,
+	    	title: locsRed[index][1]
 	    	});
+	    marker.setMap(map)
 	}
 }
