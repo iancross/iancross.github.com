@@ -46,6 +46,7 @@ function renderMap(){
 	plotRed()
 
 }
+
 function plotRed(){
 	var marker;
 	for (var index in locsRed) { 
@@ -53,6 +54,7 @@ function plotRed(){
 		currStat = new google.maps.LatLng(locsRed[index][0],locsRed[index][1]);
 	  	marker = new google.maps.Marker({
 	    	position: currStat,
+	    	shape: new google.maps.MarkerShape({ fillColor: #330000 }),
 	    	title: locsRed[index][2]
 	    	});
 	    marker.setMap(map)
