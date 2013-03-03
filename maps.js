@@ -50,5 +50,6 @@ function plotRed(){
 	  	marker = new google.maps.Marker({
 	    	position: new google.maps.LatLng(locsRed[i]),
 	    	map: map
-	})
+	    	})
+	}
 }
