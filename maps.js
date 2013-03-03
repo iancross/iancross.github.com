@@ -26,7 +26,6 @@ function getCurrLoc(){
 			myLat = position.coords.latitude
 			myLng = position.coords.longitude
 			renderMap()
-			plotRed()
 		})
 	}	
 	else{
@@ -44,6 +43,8 @@ function renderMap(){
 		infowindow.setContent(marker.title)
 		infowindow.open(map,marker)
 	})
+	plotRed()
+
 }
 function plotRed(){
 	var marker, i
