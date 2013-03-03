@@ -52,6 +52,6 @@ function plotRed(){
 	  	//marker = new google.maps.Marker({
 	    //	position: new google.maps.LatLng(locsRed[]),
 	    //	map: map
-	    	});
+	    	}
 	}
 }
