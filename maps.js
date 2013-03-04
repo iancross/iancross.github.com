@@ -79,7 +79,7 @@ function plotRed(){
 	        }*/
 			infowindow.setContent(this.title)
 			infowindow.open(map,this)
-		}
+		})
 		i++;
 	}
 	plot_Poly()
