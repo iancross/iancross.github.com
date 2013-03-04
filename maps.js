@@ -70,5 +70,16 @@ function plotRed(){
 		})
 		i++;
 	}
-	
+	plot_Poly()
+}
+
+function plot_Poly(){
+	var TPath = new google.maps.Polyline({
+    path: lineCoords,
+    strokeColor: "#FF0000",
+    strokeOpacity: 1.0,
+    strokeWeight: 3
+  });
+
+  TPath.setMap(map);
 }
