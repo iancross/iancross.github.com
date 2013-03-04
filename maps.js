@@ -71,9 +71,9 @@ function plotRed(){
 	        request.send(null);
 	        request.onreadystatechange = function(){
 		        	if (request.status == 0) {
-			        	var str = request.responseText;
+			        	str = request.responseText;
 			        }
-			        var parsed = JSON.parse(str);
+			        parsed = JSON.parse(str);
 	        }
 			infowindow.setContent(this.title)
 			infowindow.open(map,this)
