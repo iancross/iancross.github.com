@@ -96,21 +96,20 @@ function plot_Poly(){
 }
 
 function parsing(){
-	console.log('test1')
 	if (request.status == 200) {
 		str = request.responseText;
 		parsed = JSON.parse(str);
     }
     RTInfo = ' ';
     for(i = 0; i<parsed.length; i++){
-	    if(parsed[i].PlatformKey==stationAbbrev.substring	(0,stationAbbrev.length-1)){
+    	console.log(stationAbbrev);
+    	stationNS = stationAbbrev.substring(0,stationAbbrev.length-1);
+	    if(parsed[i].PlatformKey==stationNS;
 		    RTInfo = parsed[i].PlatformKey[4] + ' ' + parsed[i].TimeRemaining + ' ';
 		   
 	    }
 	    else{
 		    RTInfo = 'didnt work'
-	    }
-	    
+	    }  
     }
-    console.log('end of fucking function')
 }
