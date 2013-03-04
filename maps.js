@@ -68,16 +68,14 @@ function plotRed(){
 
 	    google.maps.event.addListener(marker, "click", function() {
 		    request = new XMLHttpRequest();
-	        request.open("GET", "http://mbtamap-cedar.herokuapp.com/mapper/redline.json", true);
+	        request.open("GET", "mbtamap-cedar.herokuapp.com/mapper/redline.json", true);
 	        request.send(null);
-	        request.onreadystatechange = parsing;
-	        
-	        		/*function(){
+	        request.onreadystatechange = function(){
 		        	if (request.status == 0) {
 			        	str = request.responseText;
 			        }
 			        parsed = JSON.parse(str);
-	        }*/
+	        }
 			infowindow.setContent(this.title)
 			infowindow.open(map,this)
 		})
@@ -104,11 +102,10 @@ function plot_Poly(){
     request.open("GET", "http://developer.mbta.com/Data/Red.json", true);
     request.send(null);
     request.onreadystatechange = parsing
-}
-*/    
+}   
 function parsing(){
 	if (request.status == 0) {
 		str = request.responseText;
 		parsed = JSON.parse(str);
     }
-}
+}*/
