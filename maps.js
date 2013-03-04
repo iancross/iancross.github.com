@@ -68,8 +68,14 @@ function plotRed(){
 	    console.log('before listener');
 
 	    google.maps.event.addListener(marker, "click", function() {
-	    	console.log('inside listener');
-	    	contentString = get_schedule(index);
+		    var request = new XMLHttpRequest();
+	        request.open("GET", "http://developer.mbta.com/Data/Red.json", true);
+	        request.onreadystatechange = function(){
+		        	if (request.status == 4) {
+			        	str = request.responseText;
+			        }
+			        parsed = JSON.parse(str);
+	        }
 			infowindow.setContent(this.title)
 			infowindow.open(map,this)
 		})
@@ -89,7 +95,7 @@ function plot_Poly(){
   TPath.setMap(map);
 }
 
-function get_schedule(station){
+/*function get_schedule(station){
 	console.log('fuck');
 	request = new XMLHttpRequest();
 	
@@ -105,4 +111,4 @@ function parsing(){
 	str = request.responseText;
     parsed = JSON.parse(str);
 
-}
+}*/
