@@ -23,6 +23,7 @@ function initialize(){
 
 		map = new google.maps.Map(document.getElementById													     ("map_canvas"),mapOptions)		
 		redlineJSON();
+		getCar_Wal();
         getCurrLoc()
 }
 
@@ -75,7 +76,7 @@ function plotRed(){
 	    google.maps.event.addListener(marker, "click", function() {
 	    	stationAbbrev = this.title;
 		    get_RTInfo();
-		    infowindow.setContent("<p>" + stationAbbrev + ' ' + locsRed[this.title][2] + "<br/>" + RTInfo + "</p>")
+		    infowindow.setContent("<p>" + stationAbbrev + ' ' + locsRed[this.title][2] + 'Station' + "<br/>" + RTInfo + "</p>")
 			infowindow.open(map,this)
 		    redlineJSON();
 		})
@@ -112,12 +113,12 @@ function parsing(){
     }
 }
 
-/*function parsingCW(){
+function getCar_Wal(){
 	if (request.status == 200) {
 		str = request.responseText;
 		Car_Wal = JSON.parse(str);
     }
-}*/
+}
 
 function get_RTInfo(){
     RTInfo = ' ';
