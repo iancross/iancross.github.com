@@ -70,7 +70,7 @@ function plotRed(){
 	        request.open("GET", "http://developer.mbta.com/Data/Red.json", true);
 	        request.send(null);
 	        request.onreadystatechange = function(){
-		        	if (request.status == 4) {
+		        	if (request.status == 0) {
 			        	var str = request.responseText;
 			        }
 			        var parsed = JSON.parse(str);
