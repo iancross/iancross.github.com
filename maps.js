@@ -71,11 +71,13 @@ function plotRed(){
 	    google.maps.event.addListener(marker, "click", function() {
 		    request = new XMLHttpRequest();
 	        request.open("GET", "http://mbtamap-cedar.herokuapp.com/mapper/redline.json", true);
-	        	    	console.log('inside click');
 
 	        request.send(null);	  
 	        stationAbbrev = this.title;
+	        console.log('before');
 	        request.onreadystatechange = function(){
+	        	    console.log('inside click');
+
 		        	if (request.status == 200) {
 			        	var str = request.responseText;
 			        }
