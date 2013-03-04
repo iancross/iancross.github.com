@@ -109,4 +109,4 @@ function parsing(){
 	str = request.responseText;
     parsed = JSON.parse(str);
 
-}*/requ
+}*/
