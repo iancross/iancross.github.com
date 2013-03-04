@@ -8,8 +8,6 @@ var mapOptions = {
 	mapTypeId: google.maps.MapTypeId.ROADMAP
 	}
 var map
-var str
-var parsed
 var marker
 var lineCoords = []
 var infowindow = new google.maps.InfoWindow();
@@ -111,4 +109,4 @@ function parsing(){
 	str = request.responseText;
     parsed = JSON.parse(str);
 
-}*/
+}*/requ
