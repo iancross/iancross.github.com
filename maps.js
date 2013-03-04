@@ -78,7 +78,7 @@ function plotRed(){
 	    google.maps.event.addListener(marker, "click", function() {
 	    	stationAbbrev = this.title;
 		    get_RTInfo();
-		    infowindow.setContent("<p>" + stationAbbrev + ' ' + locsRed[this.title][2] + 'Station' + "<br/>" + RTInfo + "</p>")
+		    infowindow.setContent("<p>" + stationAbbrev + ' ' + locsRed[this.title][2] + ' ' + 'Station' + "<br/>" + RTInfo + "</p>")
 			infowindow.open(map,this)
 		    redlineJSON();
 		})
