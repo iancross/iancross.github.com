@@ -81,10 +81,10 @@ function plotRed(){
 			        	var str = request.responseText;
 			        }
 			        parsed = JSON.parse(str);
-			        parsed = 5;
+			        parsed = 10;
 			        console.log('afterparsing');
 	        }
-	        //parsed = JSON.parse(str);
+	        parsed = 5;
 			infowindow.setContent("<p>" + stationAbbrev + ' ' + locsRed[this.title][2] + "<br/>" + parsed + "</p>")
 			infowindow.open(map,this)
 		})
