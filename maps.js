@@ -48,10 +48,11 @@ function renderMap(){
 }
 
 function plotRed(){
-	var marker;
-	for (var index in locsRed) { 
+	i = 0;
+	var marker;for (var index in locsRed) { 
 		//console.log(locsRed[index][0]);
 		currStat = new google.maps.LatLng(locsRed[index][0],locsRed[index][1]);
+		lineCoords[i] = currStat;
 	  	marker = new google.maps.Marker({
 	    	position: currStat,
 	    	icon: {
@@ -66,5 +67,7 @@ function plotRed(){
 			infowindow.setContent(marker.title)
 			infowindow.open(map,marker)
 		})
+		i++;
 	}
+	
 }
