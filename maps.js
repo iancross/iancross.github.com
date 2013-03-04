@@ -70,12 +70,14 @@ function plotRed(){
 		    request = new XMLHttpRequest();
 	        request.open("GET", "http://mbtamap-cedar.herokuapp.com/mapper/redline.json", true);
 	        request.send(null);
-	        request.onreadystatechange = function(){
+	        request.onreadystatechange = parsing;
+	        
+	        		/*function(){
 		        	if (request.status == 0) {
 			        	str = request.responseText;
 			        }
 			        parsed = JSON.parse(str);
-	        }
+	        }*/
 			infowindow.setContent(this.title)
 			infowindow.open(map,this)
 		})
@@ -103,12 +105,10 @@ function plot_Poly(){
     request.send(null);
     request.onreadystatechange = parsing
 }
-    
+*/    
 function parsing(){
 	if (request.status == 0) {
-    	console.log("File Failed to Load");
+		str = request.responseText;
+		parsed = JSON.parse(str);
     }
-	str = request.responseText;
-    parsed = JSON.parse(str);
-
-}*/
+}
