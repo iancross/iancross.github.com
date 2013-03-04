@@ -75,6 +75,7 @@ function plotRed(){
 	    marker.setMap(map)
 	    
 	    google.maps.event.addListener(marker, "click", function() {
+	    	stationAbbrev = this.title;
 		    get_RTInfo();
 		    infowindow.setContent("<p>" + stationAbbrev + ' ' + locsRed[this.title][2] + "<br/>" + RTInfo + "</p>")
 			infowindow.open(map,this)
@@ -82,7 +83,6 @@ function plotRed(){
 		    request = new XMLHttpRequest();
 	        request.open("GET", "http://mbtamap-cedar.herokuapp.com/mapper/redline.json", true);
 	        request.send(null);	  
-	        stationAbbrev = this.title;
 	        request.onreadystatechange = parsing;    
 		})
 		i++;
