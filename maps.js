@@ -65,6 +65,8 @@ function plotRed(){
 	    	title: locsRed[index][2]
 	    	});
 	    marker.setMap(map)
+	    console.log('before listener');
+
 	    google.maps.event.addListener(marker, "click", function() {
 	    	console.log('inside listener');
 	    	contentString = get_schedule(index);
