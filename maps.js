@@ -22,11 +22,7 @@ var locsRed = {"RALE":[42.395428,-71.142483, "Alewife"],"RDAV": [42.39674,-71.12
 function initialize(){
 
 		map = new google.maps.Map(document.getElementById													     ("map_canvas"),mapOptions)		
-		request = new XMLHttpRequest();
-        request.open("GET", "http://mbtamap-cedar.herokuapp.com/mapper/redline.json", true);
-        request.send(null);	  
-        request.onreadystatechange = parsing
-        
+		redlineJSON();
         getCurrLoc()
 }
 
@@ -42,6 +38,7 @@ function getCurrLoc(){
 		alert("Geolocation is not supported by your web browser.")
 	}
 }
+
 function renderMap(){
 	currLoc = new google.maps.LatLng(myLat, myLng)
 	map.panTo(currLoc)
@@ -55,7 +52,6 @@ function renderMap(){
 	})
 	plotRed()
 	plotCar_Wal()
-
 }
 
 function plotRed(){
