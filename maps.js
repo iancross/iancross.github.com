@@ -68,6 +68,7 @@ function plotRed(){
 	    google.maps.event.addListener(marker, "click", function() {
 		    var request = new XMLHttpRequest();
 	        request.open("GET", "http://developer.mbta.com/Data/Red.json", true);
+	        request.send(null);
 	        request.onreadystatechange = function(){
 		        	if (request.status == 4) {
 			        	str = request.responseText;
