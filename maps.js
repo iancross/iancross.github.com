@@ -103,8 +103,8 @@ function parsing(){
     RTInfo = ' ';
     for(i = 0; i<parsed.length; i++){
     	console.log(stationAbbrev);
-    	stationNS = stationAbbrev.substring(0,stationAbbrev.length-1);
-	    if(parsed[i].PlatformKey==stationNS){
+    	stationNS = parsed[i].PlatformKey.substring(0,parsed[i].PlatformKey.length-1);
+	    if(stationNS==stationAbbrev){
 		    RTInfo = parsed[i].PlatformKey[4] + ' ' + parsed[i].TimeRemaining + ' ';
 		   
 	    }
