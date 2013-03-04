@@ -76,7 +76,7 @@ function plotRed(){
 	        stationAbbrev = this.title;
 	        request.onreadystatechange = parsing;
 	        
-			infowindow.setContent("<p>" + stationAbbrev + ' ' + locsRed[this.title][2] + "<br/>" + parsed + "</p>")
+			infowindow.setContent("<p>" + stationAbbrev + ' ' + locsRed[this.title][2] + "<br/>" + RTInfo + "</p>")
 			infowindow.open(map,this)
 		})
 		i++;
