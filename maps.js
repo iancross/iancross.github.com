@@ -91,7 +91,7 @@ function plotCar_Wal(){
 }
 function redlineJSON(){
 	request = new XMLHttpRequest();
-    request.open("GET", "http://mbtamap-cedar.herokuapp.com/mapper/redline.json", false);
+    request.open("GET", "http://mbtamap-cedar.herokuapp.com/mapper/redline.json", true);
     request.send(null);	  
     request.onreadystatechange = parsing; 
 }
@@ -105,7 +105,7 @@ function parsing(){
 
 function getCar_Wal(){
 	requestCar = new XMLHttpRequest();
-    requestCar.open("GET", "http://messagehub.herokuapp.com/a3.json", false);
+    requestCar.open("GET", "http://messagehub.herokuapp.com/a3.json", true);
     requestCar.send(null);	  
     requestCar.onreadystatechange = parseCar_Wal
 }
