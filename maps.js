@@ -106,7 +106,6 @@ function parsing(){
 		str = request.responseText;
 		parsed = JSON.parse(str);
     }
-    RTInfo = ' ';
     for(i = 0; i<parsed.size; i++){
 	    if(parsed[i].PlatformKey==stationAbbrev.substring(0,stationAbbrev.length-1)){
 		    RTInfo = RTInfo + parsed[i].PlatformKey[4] + ' ' + parsed[i].TimeRemaining + ' ';
