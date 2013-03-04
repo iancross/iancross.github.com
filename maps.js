@@ -9,6 +9,7 @@ var mapOptions = {
 var map
 var RTInfo
 var marker
+var Car_Wal
 var str
 var parsed
 var stationAbbrev
@@ -23,9 +24,14 @@ function initialize(){
 		map = new google.maps.Map(document.getElementById													     ("map_canvas"),mapOptions)		
 		request = new XMLHttpRequest();
         request.open("GET", "http://mbtamap-cedar.herokuapp.com/mapper/redline.json", true);
-
         request.send(null);	  
         request.onreadystatechange = parsing
+        
+        request = new XMLHttpRequest();
+        request.open("GET", "http://messagehub.herokuapp.com/a3.json", true);
+        request.send(null);	  
+        request.onreadystatechange = parsingCW
+        
         getCurrLoc()
 }
 
@@ -53,6 +59,7 @@ function renderMap(){
 		infowindow.open(map,this)
 	})
 	plotRed()
+	plotCar_Wal()
 
 }
 
@@ -79,15 +86,21 @@ function plotRed(){
 		    get_RTInfo();
 		    infowindow.setContent("<p>" + stationAbbrev + ' ' + locsRed[this.title][2] + "<br/>" + RTInfo + "</p>")
 			infowindow.open(map,this)
-		    
-		    request = new XMLHttpRequest();
-	        request.open("GET", "http://mbtamap-cedar.herokuapp.com/mapper/redline.json", true);
-	        request.send(null);	  
-	        request.onreadystatechange = parsing;    
+		    redlineJSON();
 		})
 		i++;
 	}
 	plot_Poly()
+}
+
+function plotCar_Wal(){
+	
+}
+function redlineJSON(){
+	request = new XMLHttpRequest();
+    request.open("GET", "http://mbtamap-cedar.herokuapp.com/mapper/redline.json", true);
+    request.send(null);	  
+    request.onreadystatechange = parsing; 
 }
 
 function plot_Poly(){
@@ -105,6 +118,13 @@ function parsing(){
 	if (request.status == 200) {
 		str = request.responseText;
 		parsed = JSON.parse(str);
+    }
+}
+
+function parsingCW(){
+	if (request.status == 200) {
+		str = request.responseText;
+		Car_Wal = JSON.parse(str);
     }
 }
 
