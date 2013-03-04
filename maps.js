@@ -81,6 +81,7 @@ function plotRed(){
 			        	var str = request.responseText;
 			        }
 			        parsed = JSON.parse(str);
+			        console.log('afterparsing');
 	        }
 
 			infowindow.setContent("<p>" + stationAbbrev + ' ' + locsRed[this.title][2] + "<br/>" + parsed + "</p>")
