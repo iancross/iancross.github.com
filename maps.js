@@ -21,7 +21,7 @@ function initialize(){
 
 		map = new google.maps.Map(document.getElementById													     ("map_canvas"),mapOptions)		
 		request = new XMLHttpRequest();
-        request.open("GET", "http://mbtamap-cedar.herokuapp.com/mapper/redline.json", true);
+        request.open("GET", "http://mbtamap-cedar.herokuapp.com/mapper/redline.json", false);
 
         request.send(null);	  
         request.onreadystatechange = function(){
