@@ -105,7 +105,7 @@ function parsing(){
     	console.log(stationAbbrev);
     	stationNS = parsed[i].PlatformKey.substring(0,parsed[i].PlatformKey.length-1);
 	    if(stationNS==stationAbbrev){
-		    RTInfo = parsed[i].PlatformKey[4] + ' ' + parsed[i].TimeRemaining + ' ';
+		    RTInfo = RTInfo + "<br/>" + parsed[i].PlatformKey[4] + ' ' + parsed[i].TimeRemaining + ' ';
 		   
 	    }
     }
