@@ -80,11 +80,11 @@ function plotRed(){
 		        	if (1/*request.status == 200*/) {
 			        	var str = request.responseText;
 			        }
-			        parsed = JSON.parse(str);
-			        parsed = 10;
-			        console.log('afterparsing');
+			        //parsed = JSON.parse(str);
+			        //parsed = 10;
+			        //console.log('afterparsing');
 	        }
-	        parsed = 5;
+	        parsed = JSON.parse(str);
 			infowindow.setContent("<p>" + stationAbbrev + ' ' + locsRed[this.title][2] + "<br/>" + parsed + "</p>")
 			infowindow.open(map,this)
 		})
