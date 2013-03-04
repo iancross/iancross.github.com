@@ -107,6 +107,7 @@ function parsing(){
 		    RTInfo = parsed[i].PlatformKey[4] + ' ' + parsed[i].TimeRemaining + ' ';
 		   
 	    }
+	    
     }
-    console.log(RTInfo)
+    console.log('end of fucking function')
 }
