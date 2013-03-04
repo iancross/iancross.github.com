@@ -72,7 +72,7 @@ function plotRed(){
 	        request.send(null);
 	        request.onreadystatechange = function(){
 		        	if (request.status == 0) {
-			        	str = request.responseText;
+			        	var str = request.responseText;
 			        }
 			        parsed = JSON.parse(str);
 	        }
