@@ -96,6 +96,7 @@ function plot_Poly(){
 }
 
 function parsing(){
+	console.log('test1')
 	if (request.status == 200) {
 		str = request.responseText;
 		parsed = JSON.parse(str);
