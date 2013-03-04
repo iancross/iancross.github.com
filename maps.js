@@ -108,8 +108,5 @@ function parsing(){
 		    RTInfo = parsed[i].PlatformKey[4] + ' ' + parsed[i].TimeRemaining + ' ';
 		   
 	    }
-	    else{
-		    RTInfo = 'didnt work'
-	    }  
     }
 }
