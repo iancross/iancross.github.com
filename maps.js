@@ -82,7 +82,7 @@ function plotRed(){
 			        parsed = JSON.parse(str);
 	        }*/
 
-			infowindow.setContent("<p>" + stationAbbrev + ' ' + locsRed[this.title][2] + "<br/>" + RTInfo +"</p>")
+			infowindow.setContent("<p>" + stationAbbrev + ' ' + locsRed[this.title][2] + "<br/>" +"</p>")
 			infowindow.open(map,this)
 		})
 		i++;
