@@ -73,16 +73,14 @@ function plotRed(){
 	        request.open("GET", "http://mbtamap-cedar.herokuapp.com/mapper/redline.json", true);
 	        request.send(null);	  
 	        stationAbbrev = this.title;
-	        request.onreadystatechange = parsing;
-	        
-	        /*function(){
+	        request.onreadystatechange = function(){
 		        	if (request.status == 200) {
 			        	var str = request.responseText;
 			        }
 			        parsed = JSON.parse(str);
-	        }*/
+	        }
 
-			infowindow.setContent("<p>" + stationAbbrev + ' ' + locsRed[this.title][2] + "<br/>" + RTInfo + "</p>")
+			infowindow.setContent("<p>" + stationAbbrev + ' ' + locsRed[this.title][2] + "<br/>" + parsed + "</p>")
 			infowindow.open(map,this)
 		})
 		i++;
@@ -101,11 +99,11 @@ function plot_Poly(){
   TPath.setMap(map);
 }
 
-function parsing(){
+/*function parsing(){
 	if (request.status == 200) {
 		str = request.responseText;
 		parsed = JSON.parse(str);
-    }
+    }*/
     RTInfo = ' ';
     for(i = 0; i<parsed.length; i++){
 	    if(parsed[i].PlatformKey==stationAbbrev.substring(0,stationAbbrev.length-1)){
