@@ -117,7 +117,7 @@ function parseCar_Wal(){
 		Car_Wal = JSON.parse(strCar);
     }
     else{
-	    alert('Whoops! File failed to open')
+	    alert('Whoops! It seems we cannot find Waldo or Carmen. Better luck next time!')
     }
 }
 
