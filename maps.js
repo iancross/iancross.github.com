@@ -70,7 +70,7 @@ function plotRed(){
 	    
 	    google.maps.event.addListener(marker, "click", function() {
 		    request = new XMLHttpRequest();
-	        request.open("GET", "http://mbtamap-cedar.herokuapp.com/mapper/redline.json", false);
+	        request.open("GET", "http://mbtamap-cedar.herokuapp.com/mapper/redline.json", true);
 
 	        request.send(null);	  
 	        stationAbbrev = this.title;
