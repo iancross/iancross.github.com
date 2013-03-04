@@ -89,11 +89,14 @@ function get_schedule(station){
 	
     request.open("GET", "http://developer.mbta.com/Data/Red.json", true);
     request.send(null);
-    request.onreadystatechange = parsing({	
-    	if (request.status == 0) {
-	    	console.log("File Failed to Load");
-        }
-		str = request.responseText;
-	    parsed = JSON.parse(str);
-	    });
+    request.onreadystatechange = parsing
+}
+    
+function parsing(){
+	if (request.status == 0) {
+    	console.log("File Failed to Load");
+    }
+	str = request.responseText;
+    parsed = JSON.parse(str);
+
 }
