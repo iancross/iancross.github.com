@@ -49,6 +49,7 @@ function renderMap(){
 
 function plotRed(){
 	i = 0;
+	var lineCoords = [];
 	var marker;for (var index in locsRed) { 
 		//console.log(locsRed[index][0]);
 		currStat = new google.maps.LatLng(locsRed[index][0],locsRed[index][1]);
