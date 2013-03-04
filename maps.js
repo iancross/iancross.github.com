@@ -24,12 +24,12 @@ function initialize(){
         request.open("GET", "http://mbtamap-cedar.herokuapp.com/mapper/redline.json", false);
 
         request.send(null);	  
-        request.onreadystatechange = function(){
+        request.onreadystatechange = function({
    			if (request.status == 200) {
        			str = request.responseText;
        			parsed = JSON.parse(str);
        		}
-	    }
+	    });
         getCurrLoc()
 }
 function getCurrLoc(){
