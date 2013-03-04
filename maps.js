@@ -95,6 +95,27 @@ function redlineJSON(){
     request.onreadystatechange = parsing; 
 }
 
+function parsing(){
+	if (request.status == 200) {
+		str = request.responseText;
+		parsed = JSON.parse(str);
+    }
+}
+
+fucntion getCar_Wal(){
+	request = new XMLHttpRequest();
+    request.open("GET", "http://messagehub.herokuapp.com/a3.json", true);
+    request.send(null);	  
+    request.onreadystatechange = parseCar_Wal
+}
+
+function parseCar_Wal(){
+	if (request.status == 200) {
+		str = request.responseText;
+		Car_Wal = JSON.parse(str);
+    }
+}
+
 function plot_Poly(){
 	var TPath = new google.maps.Polyline({
     path: lineCoords,
@@ -104,20 +125,6 @@ function plot_Poly(){
   });
 
   TPath.setMap(map);
-}
-
-function parsing(){
-	if (request.status == 200) {
-		str = request.responseText;
-		parsed = JSON.parse(str);
-    }
-}
-
-function getCar_Wal(){
-	if (request.status == 200) {
-		str = request.responseText;
-		Car_Wal = JSON.parse(str);
-    }
 }
 
 function get_RTInfo(){
