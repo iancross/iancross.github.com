@@ -27,11 +27,6 @@ function initialize(){
         request.send(null);	  
         request.onreadystatechange = parsing
         
-        request = new XMLHttpRequest();
-        request.open("GET", "http://messagehub.herokuapp.com/a3.json", true);
-        request.send(null);	  
-        request.onreadystatechange = parsingCW
-        
         getCurrLoc()
 }
 
@@ -121,12 +116,12 @@ function parsing(){
     }
 }
 
-function parsingCW(){
+/*function parsingCW(){
 	if (request.status == 200) {
 		str = request.responseText;
 		Car_Wal = JSON.parse(str);
     }
-}
+}*/
 
 function get_RTInfo(){
     RTInfo = ' ';
