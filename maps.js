@@ -9,6 +9,7 @@ var mapOptions = {
 var map
 var RTInfo
 var marker
+var str
 var parsed
 var stationAbbrev
 var request
