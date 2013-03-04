@@ -18,9 +18,7 @@ var locsRed = {"RALE":[42.395428,-71.142483, "Alewife"],"RDAV": [42.39674,-71.12
 function initialize(){
 
 		map = new google.maps.Map(document.getElementById													     ("map_canvas"),mapOptions)
-		getCurrLoc()
-		console.log("First Fuck");
-		
+		getCurrLoc()		
 }
 function getCurrLoc(){
 	if(navigator.geolocation){
@@ -51,7 +49,8 @@ function renderMap(){
 
 function plotRed(){
 	i = 0;
-	var marker;for (var index in locsRed) { 
+	var marker;
+	for (var index in locsRed) { 
 		//console.log(locsRed[index][0]);
 		currStat = new google.maps.LatLng(locsRed[index][0],locsRed[index][1]);
 		lineCoords[i] = currStat;
@@ -66,8 +65,8 @@ function plotRed(){
 	    	});
 	    marker.setMap(map)
 	    google.maps.event.addListener(marker, "click", function() {
-			infowindow.setContent(marker.title)
-			infowindow.open(map,marker)
+			infowindow.setContent(this.title)
+			infowindow.open(map,this)
 		})
 		i++;
 	}
