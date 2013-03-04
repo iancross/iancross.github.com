@@ -22,7 +22,7 @@ function initialize(){
 
 		map = new google.maps.Map(document.getElementById													     ("map_canvas"),mapOptions)		
 		request = new XMLHttpRequest();
-        request.open("GET", "http://mbtamap-cedar.herokuapp.com/mapper/redline.json", false);
+        request.open("GET", "http://mbtamap-cedar.herokuapp.com/mapper/redline.json", true);
 
         request.send(null);	  
         request.onreadystatechange = initial_parse
