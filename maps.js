@@ -66,6 +66,7 @@ function plotRed(){
 	    	});
 	    marker.setMap(map)
 	    google.maps.event.addListener(marker, "click", function() {
+	    	console.log('inside listener');
 	    	contentString = get_schedule(index);
 			infowindow.setContent(this.title)
 			infowindow.open(map,this)
