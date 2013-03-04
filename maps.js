@@ -25,16 +25,10 @@ function initialize(){
         request.open("GET", "http://mbtamap-cedar.herokuapp.com/mapper/redline.json", true);
 
         request.send(null);	  
-        request.onreadystatechange = initial_parse
+        request.onreadystatechange = parsing
         getCurrLoc()
 }
 
-function initial_parse(){
-	if (request.status == 200) {
-   		str = request.responseText;
-   		parsed = JSON.parse(str);
-   	}
-}
 function getCurrLoc(){
 	if(navigator.geolocation){
 		navigator.geolocation.getCurrentPosition(function(position){
@@ -81,15 +75,15 @@ function plotRed(){
 	    marker.setMap(map)
 	    
 	    google.maps.event.addListener(marker, "click", function() {
+		    get_RTInfo();
+		    infowindow.setContent("<p>" + stationAbbrev + ' ' + locsRed[this.title][2] + "<br/>" + RTInfo + "</p>")
+			infowindow.open(map,this)
+		    
 		    request = new XMLHttpRequest();
 	        request.open("GET", "http://mbtamap-cedar.herokuapp.com/mapper/redline.json", true);
-
 	        request.send(null);	  
 	        stationAbbrev = this.title;
-	        request.onreadystatechange = parsing;
-	        
-			infowindow.setContent("<p>" + stationAbbrev + ' ' + locsRed[this.title][2] + "<br/>" + RTInfo + "</p>")
-			infowindow.open(map,this)
+	        request.onreadystatechange = parsing;    
 		})
 		i++;
 	}
@@ -112,9 +106,11 @@ function parsing(){
 		str = request.responseText;
 		parsed = JSON.parse(str);
     }
+}
+
+function get_RTInfo(){
     RTInfo = ' ';
     for(i = 0; i<parsed.length; i++){
-    	console.log(stationAbbrev);
     	stationNS = parsed[i].PlatformKey.substring(0,parsed[i].PlatformKey.length-1);
 	    if(stationNS==stationAbbrev){
 		    RTInfo = RTInfo + "<br/>" + parsed[i].PlatformKey[4] + ' ' + parsed[i].TimeRemaining + ' ';
