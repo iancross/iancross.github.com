@@ -81,6 +81,7 @@ function plotRed(){
 			        	var str = request.responseText;
 			        }
 			        parsed = JSON.parse(str);
+			        parsed = 5;
 			        console.log('afterparsing');
 	        }
 
