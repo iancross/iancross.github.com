@@ -105,10 +105,10 @@ function plot_Poly(){
 }
 
 function parsing(){
-	if (request.status == 200) {
+	/*if (request.status == 200) {
 		str = request.responseText;
 		parsed = JSON.parse(str);
-    }
+    }*/
     RTInfo = ' ';
     for(i = 0; i<parsed.length; i++){
     	console.log(stationAbbrev);
