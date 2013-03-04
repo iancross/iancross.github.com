@@ -9,6 +9,7 @@ var mapOptions = {
 var map
 var marker
 var parsed
+var test
 var request
 var lineCoords = []
 var infowindow = new google.maps.InfoWindow();
@@ -78,8 +79,8 @@ function plotRed(){
 			        }
 			        parsed = JSON.parse(str);
 	        }*/
-
-			infowindow.setContent("<p>" + this.title + ' ' + locsRed[this.title][2] + "<br/>" +"</p>")
+	        test = this.title;
+			infowindow.setContent("<p>" + test + ' ' + locsRed[this.title][2] + "<br/>" +"</p>")
 			infowindow.open(map,this)
 		})
 		i++;
@@ -111,4 +112,5 @@ function parsing(){
 		str = request.responseText;
 		parsed = JSON.parse(str);
     }
+    console.log(test);
 }
