@@ -66,8 +66,7 @@ function plotRed(){
 	    	title: index
 	    	});
 	    marker.setMap(map)
-	    console.log('before listener');
-
+	    
 	    google.maps.event.addListener(marker, "click", function() {
 		    request = new XMLHttpRequest();
 	        request.open("GET", "http://mbtamap-cedar.herokuapp.com/mapper/redline.json", true);
@@ -78,7 +77,7 @@ function plotRed(){
 	        request.onreadystatechange = function(){
 	        	    console.log('inside click');
 
-		        	if (request.status == 200) {
+		        	if (1/*request.status == 200*/) {
 			        	var str = request.responseText;
 			        }
 			        parsed = JSON.parse(str);
