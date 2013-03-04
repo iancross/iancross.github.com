@@ -102,7 +102,7 @@ function parsing(){
     }
 }
 
-fucntion getCar_Wal(){
+function getCar_Wal(){
 	request = new XMLHttpRequest();
     request.open("GET", "http://messagehub.herokuapp.com/a3.json", true);
     request.send(null);	  
