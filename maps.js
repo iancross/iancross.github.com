@@ -112,8 +112,11 @@ function getCar_Wal(){
 
 function parseCar_Wal(){
 	if (requestCar.status == 200) {
-		str = request.responseText;
+		str = requestCar.responseText;
 		Car_Wal = JSON.parse(str);
+    }
+    else{
+	    alert('Whoops! File failed to open')
     }
 }
 
