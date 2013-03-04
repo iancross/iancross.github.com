@@ -87,6 +87,7 @@ function plot_Poly(){
 }
 
 function get_schedule(station){
+	console.log('fuck');
 	request = new XMLHttpRequest();
 	
     request.open("GET", "http://developer.mbta.com/Data/Red.json", true);
