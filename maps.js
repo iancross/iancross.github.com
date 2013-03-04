@@ -74,19 +74,8 @@ function plotRed(){
 
 	        request.send(null);	  
 	        stationAbbrev = this.title;
-	        console.log('before');
-	        request.onreadystatechange = function(){
-	        	    console.log('inside click');
-
-		        	/*if (request.status == 200) {
-			        	str = request.responseText;
-			        }*/
-			        str = request.responseText;
-			        //parsed = JSON.parse(str);
-			        //parsed = 10;
-			        //console.log('afterparsing');
-	        }
-	        parsed = JSON.parse(str);
+	        request.onreadystatechange = parsing;
+	        
 			infowindow.setContent("<p>" + stationAbbrev + ' ' + locsRed[this.title][2] + "<br/>" + parsed + "</p>")
 			infowindow.open(map,this)
 		})
@@ -106,15 +95,15 @@ function plot_Poly(){
   TPath.setMap(map);
 }
 
-/*function parsing(){
+function parsing(){
 	if (request.status == 200) {
 		str = request.responseText;
 		parsed = JSON.parse(str);
     }
     RTInfo = ' ';
     for(i = 0; i<parsed.length; i++){
-	    if(parsed[i].PlatformKey==stationAbbrev.substring(0,stationAbbrev.length-1)){
+	    if(parsed[i].PlatformKey==stationAbbrev.substring	(0,stationAbbrev.length-1)){
 		    RTInfo = parsed[i].PlatformKey[4] + ' ' + parsed[i].TimeRemaining + ' ';
 	    }
     }
-}*/
+}
