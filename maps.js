@@ -64,6 +64,7 @@ function plotRed(){
 	    	});
 	    marker.setMap(map)
 	    google.maps.event.addListener(marker, "click", function() {
+	    	contentString = get_schedule(index);
 			infowindow.setContent(this.title)
 			infowindow.open(map,this)
 		})
@@ -81,4 +82,18 @@ function plot_Poly(){
   });
 
   TPath.setMap(map);
+}
+
+function get_schedule(station){
+	request = new XMLHttpRequest();
+	
+    request.open("GET", "http://developer.mbta.com/Data/Red.json", true);
+    request.send(null);
+    request.onreadystatechange = parsing(){	
+    	if (request.status == 0) {
+	    	console.log("File Failed to Load");
+        }
+		str = request.responseText;
+	    parsed = JSON.parse(str);
+	    };
 }
