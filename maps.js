@@ -70,7 +70,7 @@ function plotRed(){
 			infowindow.open(map,marker)
 		})
 		i++;
-	}()
+	}
 	plot_Poly()
 }
 
