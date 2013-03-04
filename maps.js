@@ -10,7 +10,6 @@ var map
 var RTInfo
 var marker
 var parsed
-var str
 var stationAbbrev
 var request
 var lineCoords = []
@@ -20,8 +19,18 @@ var locsRed = {"RALE":[42.395428,-71.142483, "Alewife"],"RDAV": [42.39674,-71.12
 
 function initialize(){
 
-		map = new google.maps.Map(document.getElementById													     ("map_canvas"),mapOptions)
-		getCurrLoc()		
+		map = new google.maps.Map(document.getElementById													     ("map_canvas"),mapOptions)		
+		request = new XMLHttpRequest();
+        request.open("GET", "http://mbtamap-cedar.herokuapp.com/mapper/redline.json", true);
+
+        request.send(null);	  
+        request.onreadystatechange = function(){
+   			if (request.status == 200) {
+       			str = request.responseText;
+       			parsed = JSON.parse(str);
+       		}
+	    }
+        getCurrLoc()
 }
 function getCurrLoc(){
 	if(navigator.geolocation){
