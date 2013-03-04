@@ -61,7 +61,7 @@ function plotRed(){
 		    	strokeColor: "black",
 		    	scale: 3
 		    	},
-	    	title: locsRed[index][2]
+	    	title: index
 	    	});
 	    marker.setMap(map)
 	    console.log('before listener');
@@ -79,7 +79,7 @@ function plotRed(){
 			        parsed = JSON.parse(str);
 	        }*/
 
-			infowindow.setContent("<p>" + this.title + "<br/>" + this +"</p>")
+			infowindow.setContent("<p>" + this.title + "<br/>" +"</p>")
 			infowindow.open(map,this)
 		})
 		i++;
