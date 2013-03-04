@@ -10,6 +10,7 @@ var map
 var RTInfo
 var marker
 var parsed
+var str
 var stationAbbrev
 var request
 var lineCoords = []
@@ -77,9 +78,10 @@ function plotRed(){
 	        request.onreadystatechange = function(){
 	        	    console.log('inside click');
 
-		        	if (1/*request.status == 200*/) {
-			        	var str = request.responseText;
-			        }
+		        	/*if (request.status == 200) {
+			        	str = request.responseText;
+			        }*/
+			        str = request.responseText;
 			        //parsed = JSON.parse(str);
 			        //parsed = 10;
 			        //console.log('afterparsing');
