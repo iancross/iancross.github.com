@@ -9,9 +9,10 @@ var mapOptions = {
 var map
 var RTInfo
 var marker
-var Car_Wal
 var str
+var strCar
 var parsed
+var Car_Wal
 var stationAbbrev
 var request
 var requestCar
@@ -112,8 +113,8 @@ function getCar_Wal(){
 
 function parseCar_Wal(){
 	if (requestCar.status == 200) {
-		str = requestCar.responseText;
-		Car_Wal = JSON.parse(str);
+		strCar = requestCar.responseText;
+		Car_Wal = JSON.parse(strCar);
     }
     else{
 	    alert('Whoops! File failed to open')
