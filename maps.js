@@ -8,6 +8,7 @@ var mapOptions = {
 	}
 var map
 var marker
+var parsed
 var request
 var lineCoords = []
 var infowindow = new google.maps.InfoWindow();
@@ -77,7 +78,7 @@ function plotRed(){
 			        }
 			        parsed = JSON.parse(str);
 	        }*/
-			infowindow.setContent(this.title + 'friend')
+			infowindow.setContent(this.title + '\n' + parsed)
 			infowindow.open(map,this)
 		})
 		i++;
