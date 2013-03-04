@@ -70,7 +70,7 @@ function plotRed(){
 	        request.open("GET", "http://mbtamap-cedar.herokuapp.com/mapper/redline.json", true);
 	        request.send(null);
 	        request.onreadystatechange = function(){
-		        	if (request.status == 0) {
+		        	if (request.status == 200) {
 			        	var str = request.responseText;
 			        }
 			        parsed = JSON.parse(str);
