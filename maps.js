@@ -7,9 +7,10 @@ var mapOptions = {
 	mapTypeId: google.maps.MapTypeId.ROADMAP
 	}
 var map
+var RTInfo
 var marker
 var parsed
-var test
+var stationAbbrev
 var request
 var lineCoords = []
 var infowindow = new google.maps.InfoWindow();
@@ -70,7 +71,8 @@ function plotRed(){
 	    google.maps.event.addListener(marker, "click", function() {
 		    request = new XMLHttpRequest();
 	        request.open("GET", "http://mbtamap-cedar.herokuapp.com/mapper/redline.json", true);
-	        request.send(null);
+	        request.send(null);	  
+	        stationAbbrev = this.title;
 	        request.onreadystatechange = parsing;
 	        
 	        /*function(){
@@ -79,8 +81,8 @@ function plotRed(){
 			        }
 			        parsed = JSON.parse(str);
 	        }*/
-	        test = this.title;
-			infowindow.setContent("<p>" + test + ' ' + locsRed[this.title][2] + "<br/>" +"</p>")
+
+			infowindow.setContent("<p>" + stationAbbrev + ' ' + locsRed[this.title][2] + "<br/>" + RTInfo +"</p>")
 			infowindow.open(map,this)
 		})
 		i++;
@@ -99,18 +101,15 @@ function plot_Poly(){
   TPath.setMap(map);
 }
 
-/*function get_schedule(station){
-	console.log('fuck');
-	request = new XMLHttpRequest();
-	
-    request.open("GET", "http://developer.mbta.com/Data/Red.json", true);
-    request.send(null);
-    request.onreadystatechange = parsing
-} */  
 function parsing(){
 	if (request.status == 200) {
 		str = request.responseText;
 		parsed = JSON.parse(str);
     }
-    console.log(test);
+    RTInfo = ' ';
+    for(i = 0; i<parsed.size; i++){
+	    if(parsed[i].PlatformKey==stationAbbrev.substring(0,stationAbbrev.length-1)){
+		    RTInfo = RTInfo + parsed[i].PlatformKey[4] + ' ' + parsed[i].TimeRemaining + ' ';
+	    }
+    }
 }
