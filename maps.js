@@ -136,11 +136,11 @@ function parseCar_Wal(){
 		strCar = requestCar.responseText;
 		Car_Wal = JSON.parse(strCar);
     }
-    console.log(Car_Wal)
-
     else{
 	    alert('Whoops! It seems we cannot find Waldo or Carmen. Better luck next time!')
     }
+    console.log(Car_Wal)
+
 }
 
 function plot_Poly(){
