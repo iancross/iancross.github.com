@@ -53,7 +53,7 @@ function renderMap(){
 	getDistance(currLoc)
 	map.panTo(currLoc)
 	
-	marker = new google.maps.Marker({ position: currLoc, title: "Current 											Location" + ': ' + '<br/> + 'Closest T-stop is + ' '+closestT})
+	marker = new google.maps.Marker({ position: currLoc, title: "Current 											Location" + ': ' + 'Closest T-stop' + closestT })
 	marker.setMap(map)
 	
 	google.maps.event.addListener(marker, "click", function() {
@@ -204,5 +204,5 @@ function getDistance(currLoc){
 			station = locsRed[index][2];
 		}
 	}
-	closestT = closestT + ' is ' + station;
+	closestT = station + ' is ' + closestT;
 }
