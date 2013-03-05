@@ -103,10 +103,14 @@ function plotCar_Wal(){
 		}
 		var loc = Car_Wal[i].loc;
 		currStat = new google.maps.LatLng(loc.latitude, loc.longitude);
+		dist = google.maps.geometry.spherical.computeDistanceBetween (currLoc, currStat)/1609.34;
+
+		
+		
 	  	marker = new google.maps.Marker({
 	    	position: currStat,
 	    	icon: img,
-	    	title: Car_Wal[i].name + ': '+ Car_Wal[i].loc.note
+	    	title: Car_Wal[i].name + ': '+ Car_Wal[i].loc.note + '. ' + 'You are ' + dist + ' away'
 	    	});
 	    marker.setMap(map)
 	    var note = Car_Wal[i]
