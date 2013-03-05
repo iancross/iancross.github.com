@@ -92,11 +92,12 @@ function plotCar_Wal(){
 	}
 	for (i=0;i<Car_Wal.length;i++) { 
 		loc = Car_Wal[i].loc;
+		console.log(loc.latitude, loc.longitude);
 		currStat = new google.maps.LatLng(loc.latitude, loc.longitude);
 	  	marker = new google.maps.Marker({
 	    	position: currStat,
 	    	icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
-	    	title: "dog"
+	    	title: 'dog'
 	    	});
 	    marker.setMap(map)
 	    
