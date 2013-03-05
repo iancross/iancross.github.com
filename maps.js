@@ -87,10 +87,10 @@ function plotRed(){
 }
 
 function plotCar_Wal(){
-	/*if(Car_Wal == null){
+	if(Car_Wal == [] || Car_Wal == null){
 		console.log('yousuck')
 		return;
-	}*/
+	}
 	for (i=0;i<Car_Wal.length;i++) { 
 		loc = Car_Wal[i].loc;
 		console.log(loc.latitude, loc.longitude);
