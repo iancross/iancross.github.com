@@ -87,10 +87,10 @@ function plotRed(){
 }
 
 function plotCar_Wal(){
-	if(Car_Wal == null){
+	/*if(Car_Wal == null){
 		console.log('yousuck')
 		return;
-	}
+	}*/
 	console.log('Carmenfuck')
 	for (i=0;i<Car_Wal.length;i++) { 
 		console.log('fucktitties')
