@@ -130,10 +130,10 @@ function plot_Poly(){
 	branch2[0]=lineCoords[13];
 	for(i=17;i<lineCoords.length;i++){
 		
-		index = 1;
-		console.log(index);
-		branch2[index]=lineCoords[i]
-		index = index+1;
+		x = 1;
+		console.log(x);
+		branch2[x]=lineCoords[i]
+		x++;
 	}
 	
 	var TPath1 = new google.maps.Polyline({
