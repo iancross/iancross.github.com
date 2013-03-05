@@ -87,11 +87,17 @@ function plotCar_Wal(){
 		return;
 	}
 	for (i=0;i<Car_Wal.length;i++) { 
+		if(Car_Wal[i].name == Waldo){
+			img = 'waldo.png';
+		}
+		else{
+			img = 'carmen.png';
+		}
 		loc = Car_Wal[i].loc;
 		currStat = new google.maps.LatLng(loc.latitude, loc.longitude);
 	  	marker = new google.maps.Marker({
 	    	position: currStat,
-	    	icon: 'http://maps.google.com/mapfiles/arrow.png',
+	    	icon: img,
 	    	title: Car_Wal[i].name 
 	    	});
 	    marker.setMap(map)
