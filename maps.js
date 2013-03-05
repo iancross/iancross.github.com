@@ -129,13 +129,13 @@ function getCar_Wal(){
     requestCar.open("GET", "http://messagehub.herokuapp.com/a3.json", true);
     requestCar.send(null);	  
     requestCar.onreadystatechange = parseCar_Wal
-    console.log(Car_Wal)
 
 }
 
 function parseCar_Wal(){
 	if (requestCar.status == 200) {
 		strCar = requestCar.responseText;
+		console.log(strCar);
 		Car_Wal = JSON.parse(strCar);
     }
     else{
