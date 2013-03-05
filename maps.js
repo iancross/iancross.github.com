@@ -129,6 +129,8 @@ function getCar_Wal(){
     requestCar.open("GET", "http://messagehub.herokuapp.com/a3.json", true);
     requestCar.send(null);	  
     requestCar.onreadystatechange = parseCar_Wal
+    console.log(Car_Wal)
+
 }
 
 function parseCar_Wal(){
@@ -139,7 +141,7 @@ function parseCar_Wal(){
     else{
 	    alert('Whoops! It seems we cannot find Waldo or Carmen. Better luck next time!')
     }
-    console.log(Car_Wal)
+    //console.log(Car_Wal)
 
 }
 
