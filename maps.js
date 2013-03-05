@@ -196,7 +196,7 @@ function get_RTInfo(){
 
 function getDistance(currLoc){
 	i = 0;
-	var station = 'Alewife'
+	var station = 'Alewife'	
 	closestT = google.maps.geometry.spherical.computeDistanceBetween (currLoc, lineCoords[i]);
 	for(var index in locsRed){
 		temp = google.maps.geometry.spherical.computeDistanceBetween (currLoc, lineCoords[i]);
@@ -204,6 +204,7 @@ function getDistance(currLoc){
 			closestT = temp
 			station = locsRed[index][2];
 		}
+		i++;
 	}
 	closestT = station + ' is ' + closestT;
 }
