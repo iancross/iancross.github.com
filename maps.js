@@ -53,7 +53,7 @@ function renderMap(){
 	getDistance(currLoc)
 	map.panTo(currLoc)
 	
-	marker = new google.maps.Marker({ position: currLoc, title: "Current 											Location" + ' ' + closestT})
+	marker = new google.maps.Marker({ position: currLoc, title: "Current 											Location" + ': ' + '<br/> + 'Closest T-stop is + ' '+closestT})
 	marker.setMap(map)
 	
 	google.maps.event.addListener(marker, "click", function() {
@@ -195,12 +195,14 @@ function get_RTInfo(){
 }
 
 function getDistance(currLoc){
-	closestT = google.maps.geometry.spherical.computeDistanceBetween(currLoc, lineCoords[0]);
-	console.log(closestT)
-	for(i=1;i<lineCoords.length;i++){
-		temp = google.maps.geometry.spherical.computeDistanceBetween(currLoc, lineCoords[i]);
+	i = 0;
+	closestT = google.maps.geometry.spherical.computeDistanceBetween (currLoc, lineCoords[i]);
+	for(var index in locsRed){
+		temp = google.maps.geometry.spherical.computeDistanceBetween (currLoc, LineCoords[i]);
 		if(temp<closestT){
-			closestT = temp;
+			closestT = temp
+			station = locsRed[index][2];
 		}
 	}
+	closestT = closestT + ' is ' + station;
 }
