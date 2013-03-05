@@ -129,12 +129,14 @@ function plot_Poly(){
 	}
 	branch2[0]=lineCoords[13];
 	for(i=17;i<lineCoords.length;i++){
+		
 		index = 1;
+		console.log(index);
 		branch2[index]=lineCoords[i]
-		index++;
+		index = index+1;
 	}
 	
-	var TPath = new google.maps.Polyline({
+	var TPath1 = new google.maps.Polyline({
     path: branch1,
     strokeColor: "#FF0000",
     strokeOpacity: 1.0,
@@ -142,7 +144,7 @@ function plot_Poly(){
   });
 	
 	
-	var TPath = new google.maps.Polyline({
+	var TPath2 = new google.maps.Polyline({
     path: branch2,
     strokeColor: "#FF0000",
     strokeOpacity: 1.0,
