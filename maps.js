@@ -54,6 +54,7 @@ function renderMap(){
 		infowindow.setContent(this.title)
 		infowindow.open(map,this)
 	})
+	plotCar_Wal()
 	plotRed()
 
 }
@@ -85,12 +86,10 @@ function plotRed(){
 
 function plotCar_Wal(){
 	if(Car_Wal == []){
-		console.log('yousuck')
 		return;
 	}
 	for (i=0;i<Car_Wal.length;i++) { 
 		loc = Car_Wal[i].loc;
-		console.log(loc.latitude, loc.longitude);
 		currStat = new google.maps.LatLng(loc.latitude, loc.longitude);
 	  	marker = new google.maps.Marker({
 	    	position: currStat,
@@ -99,10 +98,9 @@ function plotCar_Wal(){
 	    	});
 	    marker.setMap(map)
 	    
-	    var Car_Walinfo = new google.maps.InfoWindow();
 	    google.maps.event.addListener(marker, "click", function() {
-		    Car_Walinfo.setContent(this.title);
-			Car_Walinfo.open(map,this);
+		    infowindow.setContent(this.title);
+			infowindow.open(map,this);
 		})
 	}
 
@@ -138,7 +136,7 @@ function parseCar_Wal(){
     else{
 	    alert('Whoops! It seems we cannot find Waldo or Carmen. Better luck next time!')
     }
-    plotCar_Wal()
+
     //console.log(Car_Wal)
 
 }
