@@ -122,8 +122,28 @@ function parseCar_Wal(){
 }
 
 function plot_Poly(){
+	branch1 = [];
+	branch2 = [];
+	for(i=0;i<=16;i++){
+		branch1[i]=lineCoords[i];
+	}
+	branch2[0]=lineCoords[13];
+	for(i=17;i<lineCoords.length;i++){
+		index = 1;
+		branch2[index]=lineCoords[i]
+		index++;
+	}
+	
 	var TPath = new google.maps.Polyline({
-    path: lineCoords,
+    path: branch1,
+    strokeColor: "#FF0000",
+    strokeOpacity: 1.0,
+    strokeWeight: 3
+  });
+	
+	
+	var TPath = new google.maps.Polyline({
+    path: branch2,
     strokeColor: "#FF0000",
     strokeOpacity: 1.0,
     strokeWeight: 3
