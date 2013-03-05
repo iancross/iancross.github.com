@@ -102,7 +102,7 @@ function plotCar_Wal(){
 	    var Car_Walinfo = new google.maps.InfoWindow();
 	    google.maps.event.addListener(marker, "click", function() {
 		    Car_Walinfo.setContent(this.title);
-			Car_Walinfo.open(map,marker);
+			Car_Walinfo.open(map,this);
 		})
 	}
 
