@@ -197,6 +197,6 @@ function get_RTInfo(){
 }
 
 function getDistance(CurrLat,CurrLng){
-	latlngA = CurrLat + ',' + CurrLng
+	var latlngA = CurrLat + ',' + CurrLng
 	closestT = google.maps.geometry.spherical.computeDistanceBetween(latLngA, locsRed[0]);
 }
