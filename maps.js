@@ -95,7 +95,7 @@ function plotCar_Wal(){
 		else{
 			img = 'carmen.png';
 		}
-		loc = Car_Wal[i].loc;
+		var loc = Car_Wal[i].loc;
 		currStat = new google.maps.LatLng(loc.latitude, loc.longitude);
 	  	marker = new google.maps.Marker({
 	    	position: currStat,
