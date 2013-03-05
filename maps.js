@@ -91,7 +91,7 @@ function plotCar_Wal(){
 		console.log('yousuck')
 		return;
 	}*/
-	console.log('Carwal: ' + Car_Wal)
+	console.log(Car_Wal)
 	console.log('Carmenfuck')
 	for (i=0;i<Car_Wal.length;i++) { 
 		console.log('fucktitties')
