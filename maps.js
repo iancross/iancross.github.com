@@ -105,7 +105,6 @@ function plotCar_Wal(){
 	    google.maps.event.addListener(marker, "click", function() {
 		    infowindow.setContent(this.title);
 			infowindow.open(map,this);
-		    getCar_Wal();
 		})
 	}
 
