@@ -61,7 +61,6 @@ function plotRed(){
 	i = 0;
 	var marker;
 	for (var index in locsRed) { 
-		//console.log(locsRed[index][0]);
 		currStat = new google.maps.LatLng(locsRed[index][0],locsRed[index][1]);
 		lineCoords[i] = currStat;
 	  	marker = new google.maps.Marker({
@@ -88,7 +87,26 @@ function plotRed(){
 }
 
 function plotCar_Wal(){
-	
+	if(Car_Wal == null){
+		return;
+	}
+	for (i=0;i<Car_Wal.length;i++) { 
+		loc = Car_Wal[i].loc;
+		currStat = new google.maps.LatLng(loc.latitude, loc.longitude);
+	  	marker = new google.maps.Marker({
+	    	position: currStat,
+	    	icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
+	    	title: Car_Wal[i].name;
+	    	});
+	    marker.setMap(map)
+	    
+	    google.maps.event.addListener(marker, "click", function() {
+		    infowindow.setContent(this.title);
+			infowindow.open(map,this);
+		    getCar_Wal();
+		})
+	}
+
 }
 function redlineJSON(){
 	request = new XMLHttpRequest();
