@@ -104,9 +104,11 @@ function plotCar_Wal(){
 	    	});
 	    marker.setMap(map)
 	    var note = loc.note;
+	    
+	    Car_Walinfo = new google.maps.InfoWindow();
 		google.maps.event.addListener(marker, "click", function() {
-			infowindow.setContent("<p>" + this.title + ': ' + note + "</p>")
-			infowindow.open(map,this)
+			Car_Walinfo.setContent("<p>" + this.title + ': ' + note + "</p>")
+			Car_Walinfo.open(map,this)
 		})
 	}
 
