@@ -194,5 +194,7 @@ function get_RTInfo(){
 }
 
 function getDistance(currLoc){
+	console.log(currLoc)
+	console.log(lineCoords[0])
 	closestT = google.maps.geometry.spherical.computeDistanceBetween(currLoc, lineCoords[0]);
 }
