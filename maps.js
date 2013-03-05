@@ -151,8 +151,8 @@ function plot_Poly(){
     strokeWeight: 3
   });
 
-  branch1.setMap(map);
-  branch2.setMap(map);
+  TPath1.setMap(map);
+  TPath2.setMap(map);
 }
 
 function get_RTInfo(){
