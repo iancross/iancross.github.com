@@ -88,6 +88,7 @@ function plotRed(){
 
 function plotCar_Wal(){
 	if(Car_Wal == null){
+		console.log('yousuck')
 		return;
 	}
 	for (i=0;i<Car_Wal.length;i++) { 
