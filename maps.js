@@ -198,7 +198,7 @@ function getDistance(currLoc){
 	i = 0;
 	closestT = google.maps.geometry.spherical.computeDistanceBetween (currLoc, lineCoords[i]);
 	for(var index in locsRed){
-		temp = google.maps.geometry.spherical.computeDistanceBetween (currLoc, LineCoords[i]);
+		temp = google.maps.geometry.spherical.computeDistanceBetween (currLoc, lineCoords[i]);
 		if(temp<closestT){
 			closestT = temp
 			station = locsRed[index][2];
