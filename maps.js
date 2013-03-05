@@ -48,6 +48,7 @@ function getCurrLoc(){
 }
 
 function renderMap(){
+	plotRed()
 	currLoc = new google.maps.LatLng(myLat, myLng)
 	getDistance(currLoc)
 	map.panTo(currLoc)
@@ -60,7 +61,7 @@ function renderMap(){
 		infowindow.open(map,this)
 	})
 
-	plotRed()
+	
 
 }
 
