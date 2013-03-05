@@ -91,6 +91,7 @@ function plotCar_Wal(){
 		console.log('yousuck')
 		return;
 	}
+	console.log('Carmenfuck')
 	for (i=0;i<Car_Wal.length;i++) { 
 		loc = Car_Wal[i].loc;
 		console.log(loc.latitude, loc.longitude);
