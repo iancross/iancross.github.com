@@ -54,7 +54,7 @@ function renderMap(){
 		infowindow.open(map,this)
 	})
 	plotRed()
-	plotCar_Wal()
+
 }
 
 function plotRed(){
@@ -140,6 +140,7 @@ function parseCar_Wal(){
     else{
 	    alert('Whoops! It seems we cannot find Waldo or Carmen. Better luck next time!')
     }
+    plotCar_Wal()
     //console.log(Car_Wal)
 
 }
