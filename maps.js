@@ -55,6 +55,10 @@ function renderMap(){
 		infowindow.setContent(this.title)
 		infowindow.open(map,this)
 	})
+	
+	ctx=map_canvas.getContext("2d");		
+    ctx.fillStyle = "#191970";
+	ctx.fillRect (2,2,395,280);
 	plotRed()
 
 }
