@@ -87,7 +87,7 @@ function plotCar_Wal(){
 		return;
 	}
 	for (i=0;i<Car_Wal.length;i++) { 
-		if(Car_Wal[i].name == Waldo){
+		if(Car_Wal[i].name == 'Waldo'){
 			img = 'waldo.png';
 		}
 		else{
