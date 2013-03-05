@@ -92,7 +92,7 @@ function plotCar_Wal(){
 	  	marker = new google.maps.Marker({
 	    	position: currStat,
 	    	icon: 'http://maps.google.com/mapfiles/arrow.png',
-	    	title: Car_Wal[0].name 
+	    	title: Car_Wal[i].name 
 	    	});
 	    marker.setMap(map)
 	    
