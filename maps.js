@@ -11,6 +11,7 @@ var RTInfo
 var marker
 var closestT
 var distWaldo
+
 var str
 var strCar
 var parsed
@@ -27,8 +28,9 @@ function initialize(){
 
 		map = new google.maps.Map(document.getElementById													     ("map_canvas"),mapOptions)		
 		redlineJSON();
+		getCurrLoc()
 		getCar_Wal();
-        getCurrLoc()
+
 }
 
 function getCurrLoc(){
@@ -36,19 +38,21 @@ function getCurrLoc(){
 		navigator.geolocation.getCurrentPosition(function(position){
 			myLat = position.coords.latitude
 			myLng = position.coords.longitude
+			getDistance(myLat,myLng)
 			renderMap()
 		})
 	}	
 	else{
 		alert("Geolocation is not supported by your web browser.")
 	}
+	
 }
 
 function renderMap(){
 	currLoc = new google.maps.LatLng(myLat, myLng)
 	map.panTo(currLoc)
 	
-	marker = new google.maps.Marker({ position: currLoc, title: "Current 											Location"})
+	marker = new google.maps.Marker({ position: currLoc, title: "Current 											Location" + ' ' + closestT})
 	marker.setMap(map)
 	
 	google.maps.event.addListener(marker, "click", function() {
@@ -190,4 +194,9 @@ function get_RTInfo(){
 		   
 	    }
     }
+}
+
+getDistance(CurrLat,CurrLng){
+	latlngA = CurrLat + ',' + CurrLng
+	closestT = google.maps.geometry.spherical.computeDistanceBetween(latLngA, locsRed[0]);
 }
