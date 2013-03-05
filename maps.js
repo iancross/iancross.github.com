@@ -65,11 +65,7 @@ function plotRed(){
 		lineCoords[i] = currStat;
 	  	marker = new google.maps.Marker({
 	    	position: currStat,
-	    	icon: {
-		    	path: google.maps.SymbolPath.BACKWARD_OPEN_ARROW,
-		    	strokeColor: "black",
-		    	scale: 3
-		    	},
+	    	icon: 'http://maps.google.com/mapfiles/marker_purpleT.png',
 	    	title: index
 	    	});
 	    marker.setMap(map)
@@ -97,7 +93,7 @@ function plotCar_Wal(){
 		currStat = new google.maps.LatLng(loc.latitude, loc.longitude);
 	  	marker = new google.maps.Marker({
 	    	position: currStat,
-	    	icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
+	    	icon: 'http://maps.google.com/mapfiles/arrow.png',
 	    	title: loc.name
 	    	});
 	    marker.setMap(map)
