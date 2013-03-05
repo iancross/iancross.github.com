@@ -96,7 +96,7 @@ function plotCar_Wal(){
 	  	marker = new google.maps.Marker({
 	    	position: currStat,
 	    	icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
-	    	title: 'dog'
+	    	title: "dog"
 	    	});
 	    marker.setMap(map)
 	    
