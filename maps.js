@@ -91,10 +91,7 @@ function plotCar_Wal(){
 		console.log('yousuck')
 		return;
 	}*/
-	console.log(Car_Wal)
-	console.log('Carmenfuck')
 	for (i=0;i<Car_Wal.length;i++) { 
-		console.log('fucktitties')
 		loc = Car_Wal[i].loc;
 		console.log(loc.latitude, loc.longitude);
 		currStat = new google.maps.LatLng(loc.latitude, loc.longitude);
@@ -139,6 +136,8 @@ function parseCar_Wal(){
 		strCar = requestCar.responseText;
 		Car_Wal = JSON.parse(strCar);
     }
+    console.log(Car_Wal)
+
     else{
 	    alert('Whoops! It seems we cannot find Waldo or Carmen. Better luck next time!')
     }
