@@ -87,7 +87,7 @@ function plotRed(){
 }
 
 function plotCar_Wal(){
-	if(Car_Wal == [] || Car_Wal == null){
+	if(Car_Wal == []){
 		console.log('yousuck')
 		return;
 	}
