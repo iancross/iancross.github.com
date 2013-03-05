@@ -98,10 +98,10 @@ function plotCar_Wal(){
 	    	});
 	    marker.setMap(map)
 	    
+	    Car_Walinfo = new new google.maps.InfoWindow();
 	    google.maps.event.addListener(marker, "click", function() {
-		    infowindow.setContent(this.title);
-			infowindow.open(map,this);
-			getCar_Wal();
+		    Car_Walinfo.setContent(this.title);
+			Car_Walinfo.open(map,this);
 		})
 	}
 
