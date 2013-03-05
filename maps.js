@@ -130,7 +130,7 @@ function plot_Poly(){
 	branch2[0]=lineCoords[13];
 	for(i=17;i<lineCoords.length;i++){
 		
-		x = 1;
+		var x = 1;
 		console.log(x);
 		branch2[x]=lineCoords[i]
 		x++;
