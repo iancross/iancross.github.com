@@ -105,7 +105,7 @@ function plotCar_Wal(){
 	    marker.setMap(map)
 	    var note = Car_Wal[i]
 		google.maps.event.addListener(marker, "click", function(note) {
-			infowindow.setContent("<p>" + this.title + ': ' + note.loc.name + "</p>")
+			infowindow.setContent("<p>" + this.title + ': ' + note.loc.note + "</p>")
 			infowindow.open(map,this)
 		})
 	}
