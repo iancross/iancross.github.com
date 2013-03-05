@@ -110,7 +110,7 @@ function plotCar_Wal(){
 	  	marker = new google.maps.Marker({
 	    	position: currStat,
 	    	icon: img,
-	    	title: Car_Wal[i].name + ': '+ Car_Wal[i].loc.note + '. ' + 'You are ' + dist + ' away'
+	    	title: Car_Wal[i].name + ': '+ Car_Wal[i].loc.note + '. ' + 'You are ' + dist +  ' miles away'
 	    	});
 	    marker.setMap(map)
 	    var note = Car_Wal[i]
