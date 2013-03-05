@@ -103,7 +103,7 @@ function plotCar_Wal(){
 		}
 		var loc = Car_Wal[i].loc;
 		currStat = new google.maps.LatLng(loc.latitude, loc.longitude);
-		dist = google.maps.geometry.spherical.computeDistanceBetween (currLoc, currStat);
+		dist = google.maps.geometry.spherical.computeDistanceBetween (currLoc, currStat)/1609.34;
 
 		
 		
