@@ -1,18 +1,24 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
-<title> Where is everybody? </title>
-<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true&amp;v=3&amp;libraries=geometry"></script>
-<script type="text/javascript" src ="maps.js"> </script> 
-<link rel="stylesheet" href="where.css" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Frogger</title>
+<link rel="stylesheet" href="style.css">
 
+<script src="game.js"></script>
 </head>
+<body onload="start_game()">
 
-<body onload="initialize ()">
-		<div id="map_canvas" style="width:100%: height:100%"></div>
+<audio loop="loop" autoplay="autoplay">  
+   <source src="GameMusic.aif" />  
+</audio> 
+
+<audio id="jump_sound" src="FrogJump.aif" preload="auto"></audio>
+<audio id="die_sound" src="FrogDrown2.aif" preload="auto"></audio>
+<audio id="start_sound" src="OnYourMarks.aif" preload="auto"></audio>
+
+<div id="game_div">
+<canvas id="game" height="565" width="399"></canvas>
+</div>
 </body>
-
 </html>
