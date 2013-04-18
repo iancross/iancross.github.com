@@ -131,7 +131,11 @@ function draw() {
 		//score+=
 	}
 	if(lives==-1){
+		var player_name = prompt("Please enter your name!","YOUR NAME HERE");
+		$.post("http://safe-wave-9216.herokuapp.com/submit.json",{game_title: "Frogger",
+name: player_name, score:score ,created_at:new Date()})
 		game_over();
+
 	}
 	
 }
