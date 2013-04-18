@@ -132,8 +132,6 @@ function draw() {
 	}
 	if(lives==-1){
 		game_over();
-		var player_name = prompt("Please enter your name!","YOUR NAME HERE");
-		console.log(player_name);
 	}
 	
 }
