@@ -1,0 +1,13 @@
+
+#map_canvas { 
+	max-height: 100%;
+	max-width: 100%;
+	position: center;
+	padding: 150px;
+
+}
+
+#suggestion {
+	font-style: italic;
+}
+
