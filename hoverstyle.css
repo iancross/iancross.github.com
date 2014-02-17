@@ -1,0 +1,41 @@
+ body
+{
+background-image:url('background.jpg');
+background-size: 100% auto;
+}
+ 
+ #all ul { 
+	list-style: none;
+	float: left; width: 32%; 
+	padding: 0 10px 0 0; 
+}
+#all a { 
+	text-decoration: none; 
+	display: block; 
+	padding: 7%;
+	background: #55f; 
+	border-radius: 200px; 
+	color: white; 
+	text-align: center;
+	margin: 0 0 5px 0; 
+	
+	-webkit-transition: all 0.2s ease;
+	-moz-transition: all 0.2s ease;
+	-o-transition: all 0.2s ease;
+}
+#all:hover a {
+	opacity: 0.2;
+}
+#all:hover ul:hover a {
+	opacity: 0.5; 
+}
+#all:hover ul:hover a:hover {
+	opacity: 1;
+}
+* { margin: 0; padding: 0; }
+body { font: 14px Georgia, serif; }
+
+article, aside, figure, footer, header, hgroup,
+menu, nav, section { display: block; }
+
+#page-wrap { width: 960px; margin: 80px auto; }
