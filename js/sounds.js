@@ -1,6 +1,4 @@
-function sound1()
+function sound1(input)
 {
-	document.getElementById('LaVerdadEsQue').play();
-
-
+	document.getElementById(input).play();
 }
