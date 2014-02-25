@@ -1,8 +1,7 @@
  body
 {
-background-image:url('background.jpg');
-background-size: 100% auto;
-}
+	background-image:url('green_background.jpg');
+background-repeat: repeat-x|repeat-y;}
  
  #all ul { 
 	list-style: none;
@@ -13,7 +12,8 @@ background-size: 100% auto;
 	text-decoration: none; 
 	display: block; 
 	padding: 7%;
-	background: #55f; 
+	background-image:url('background.jpg');
+background-repeat: repeat-x|repeat-y;
 	border-radius: 200px; 
 	color: white; 
 	text-align: center;
