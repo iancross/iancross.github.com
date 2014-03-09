@@ -1,23 +1,47 @@
  body
 {
-	background-image:url('green_background.jpg');
-background-repeat: repeat-x|repeat-y;}
+
+background: url('arturo_smoking copia.jpg');
+background-size: 110%;
+background-repeat: repeat-x|repeat-y;
+background-attachment:fixed;
+background-position:  -40px; 
+}
  
  #all ul { 
 	list-style: none;
-	float: left; width: 32%; 
-	padding: 0 10px 0 0; 
+	padding: 0 13px 0 0; 
+	text-align: center;
 }
+
+#title {
+	font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+	font-size: 400%;
+	text-decoration: none; 
+	padding: 3%;
+	background: rgba(227,0,65,0.87);
+	border-radius: 200px; 
+	color: white; 
+	text-align: center;
+	margin: 0 0 20px 0; 
+	box-shadow: 8px 8px 3px rgba(35,30,30,0.81);
+	width: 90%;
+	
+}
+
+
 #all a { 
+	font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
 	text-decoration: none; 
 	display: block; 
-	padding: 7%;
-	background-image:url('background.jpg');
-background-repeat: repeat-x|repeat-y;
+	padding: 2%;
+	background: rgba(227,0,65,0.87);
 	border-radius: 200px; 
 	color: white; 
 	text-align: center;
 	margin: 0 0 5px 0; 
+	box-shadow: 8px 8px 3px rgba(35,30,30,0.81);
+
 	
 	-webkit-transition: all 0.2s ease;
 	-moz-transition: all 0.2s ease;
@@ -38,4 +62,8 @@ body { font: 14px Georgia, serif; }
 article, aside, figure, footer, header, hgroup,
 menu, nav, section { display: block; }
 
-#page-wrap { width: 960px; margin: 80px auto; }
+#page-wrap { 
+	width: 42%;	 
+	margin: 3% auto; 
+	float:right;
+}
