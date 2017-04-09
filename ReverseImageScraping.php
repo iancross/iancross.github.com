@@ -1,7 +1,7 @@
 <?php
-require_once(ABSPATH . "wp-admin" . '/includes/image.php');
-require_once(ABSPATH . "wp-admin" . '/includes/file.php');
-require_once(ABSPATH . "wp-admin" . '/includes/media.php');
+//require_once(ABSPATH . "wp-admin" . '/includes/image.php');
+//require_once(ABSPATH . "wp-admin" . '/includes/file.php');
+//require_once(ABSPATH . "wp-admin" . '/includes/media.php');
  
 class Import_Script
 {
@@ -21,20 +21,20 @@ class Import_Script
  
     function __construct($image_url, $order)
     {
+
  
         try {
- 
             $full_url = $this->compose_url($image_url);
             $img_res_url = $this->open_url($full_url);
             $body_dom = $this->get_tag_content_as_dom($img_res_url);
- 
-            $topstuff_div = $this->get_xpath_result($body_dom, self::$topstuff_div_query);
-            $best_guess = $this->get_best_guess($topstuff_div);
- 
+            $topstuff_div = $this->get_xpath_result($body_dom, self::$topstuff_div_query); 
+
+            $best_guess = $this->get_best_guess($topstuff_div);      
+
             $titles = $this->get_xpath_result($body_dom, self::$title_h3_query);
+
  
             $span_texts = $this->get_xpath_result($body_dom, self::$span_text_query);
- 
             // if length is > 0 then search result isn't empty
             if ($titles->length > 0 && $span_texts->length > 0) {
                 $best_guess = $this->sanitize_best_guess($best_guess);
@@ -44,7 +44,7 @@ class Import_Script
                     $this->img_file_name = strtolower($this->compose_img_file_name($img_name));
                 }
             } else {
-                echo "Nothing found about the picture, url: " . $image_url;
+                echo "First Nothing found about the picture, url: " . $image_url;
             }
         } catch (Exception $e) {
             echo 'Exception caught: ',  $e->getMessage(), "<br />";
@@ -58,7 +58,7 @@ class Import_Script
         foreach ($xpath_res as $val) {
             echo $val->nodeValue . " | ";
         }
-        echo "<br />";
+        //echo "<br />";
     }
  
     function compose_img_file_name($word)
@@ -153,7 +153,9 @@ class Import_Script
  
     function compose_url($request)
     {
+
         $full_url = self::$URL . $request;
+        echo " and Request " . $request;
         return $full_url;
     }
  
@@ -166,7 +168,7 @@ class Import_Script
         curl_setopt($curl, CURLOPT_REFERER, 'http://localhost');
         curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($curl, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.97 Safari/537.11");
-        curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
+        curl_setopt($curl, CURLOPT_FOLLOWLOCATION, false);
         $content = utf8_decode(curl_exec($curl));
         curl_close($curl);
         return $content;
@@ -177,7 +179,11 @@ class Import_Script
         $dom = new DOMDocument();
         $dom->strictErrorChecking = false; // turn off warnings and errors when parsing
         @$dom->loadHTML($img_res_url);
+                echo $dom->saveHTML();
+
         $body = $dom->getElementsByTagName($tag_name);
+                    //echo "here" . $body;
+
         $body = $body->item(0);
         $new_dom = new DOMDocument();
         $node = $new_dom->importNode($body, true);
@@ -192,12 +198,12 @@ class Import_Script
     }
 }
 
-echo "butt fucker";
-$i = 1
+$i = 1;
 // could be in some loop where you give picture urls
 // foreach {
-$pic_url = 'http://kaizern.com/blog/beautiful-landscapes-1.jpg';
+$pic_url = "http://kaizern.com/blog/beautiful-landscapes-1.jpg";
 $importScript = new Import_Script($pic_url, $i);
+
 
 if ($importScript->img_file_name) {
 	$image_file_name = $importScript->img_file_name;
@@ -208,9 +214,7 @@ if ($importScript->img_file_name) {
 	// do here with the image file name some specific operations for your website, e.g insert new picture etc
 } else {
     echo "Nothing found about the picture, url: " . $pic_url . "<br />";
+
 }
 $i++;
-
 ?>
-
-
