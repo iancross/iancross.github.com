@@ -24,7 +24,7 @@
 
    var chartDiv = document.getElementById("chart");
    var svg = d3.select(chartDiv).append("svg");
-   var diameter = 20;
+   var diameter = 400;
    var width,height,circles_x,circles_y;
 
    function redraw(){
@@ -69,17 +69,11 @@
             .attr("fill",new_color)
          wave(index,new_color, old_color);
 
-         for(var q = 0; q<1000; q++){
-            console.log("loop wave with index " + q)
-            wave(q,new_color,old_color)
-      
-         }
-
       }
       function wave(index,new_color,old_color){
          svg.selectAll("circle")
             .each(function (d, i){  //get current element
-            if (index == i && d3.select(this).attr("fill") == old_color){
+            if (index == i && d3.select(this).attr("fill") == new_color){
                var adjacent_indices = get_adjacent_indices(i);       //get indices to test
                console.log(adjacent_indices);
                for (var z = 0; z < adjacent_indices.length; z++){ 
