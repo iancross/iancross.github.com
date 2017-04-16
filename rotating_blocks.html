@@ -1,0 +1,91 @@
+<!--
+Originally created by Mike Bostock
+Updated and revised by Ian Cross
+-->
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Transform Transitions</title>
+<style>
+
+body {
+  margin: 0;
+}
+
+rect {
+  stroke: #fff;
+  stroke-width: .1px;
+}
+
+</style>
+<body>
+<script src="d3/d3.min.js"></script>
+<script>
+var w = 960,
+    h = 1000,
+    z = 20,
+    x = w / z,
+    y = h/2 / z,
+    cushion = 20;
+
+var svg = d3.select("body").append("svg")
+    .attr("width", w)
+    .attr("height", h);
+
+svg.selectAll("rect")
+    .data(d3.range(x * y))
+  .enter().append("rect")
+    .attr("transform", translate)
+    .attr("width", z)
+    .attr("height", z)
+    .style("fill", function(d) { return d3.hsl(d % x / x * 360, 1, Math.floor(d / x) / y); })
+    .on("mouseover", mouseover);
+
+function translate(d) {
+  return "translate(" + (d % x) * z + "," + Math.floor(d / x) * z + ")";
+}
+
+function mouseover(d) {
+  child = this.parentNode.appendChild(this);
+
+  d3.select(this)
+      .style("pointer-events", "none")
+    .transition()
+      .duration(1500)
+      .attr("transform", pick_side_translate(this))
+      .on("end", function(){ console.log("first end")})
+    .transition()
+      .delay(1500)
+      .attr("transform", translate(d))//"translate(240,240)scale(0)")
+      //.style("fill-opacity", 100)
+      .on("end", function(){
+        console.log("second end");   
+        d3.select(this)
+          .style("pointer-events", "all")
+          .style("mouseover",function(){console.log("fuckme")});
+        })
+
+      //.on("end", enable_mouseover(this))
+
+      /*.remove()
+    .transition()
+      .duration(800)
+      .attr("transform", translate(d))*/
+
+}
+function pick_side_translate(x){
+    var coord = x.getBoundingClientRect()
+    console.log("left coord" + coord.left)
+
+    if (coord.left < w/2){
+      return "translate(" + 0 + "," + (h-cushion) + ")scale(22)rotate(270)"
+    }
+    else{
+      return "translate(" + w + "," + (h-cushion) + ")scale(22)rotate(180)"
+    }
+}
+/*function enable_mouseover(rect){
+  console.log("happened already")
+  d3.select(rect).style("pointer-events", null)
+
+}*/
+</script>

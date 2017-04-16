@@ -1,91 +1,136 @@
-<!--
-Originally created by Mike Bostock
-Updated and revised by Ian Cross
--->
 <!DOCTYPE html>
-<meta charset="utf-8">
-<title>Transform Transitions</title>
-<style>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>Dynamic Size Example</title>
+   <script src="https://d3js.org/d3.v4.min.js"></script>
+   <style>
 
-body {
-  margin: 0;
+  /* Make the chart container fill the page using CSS. */
+  #chart {
+      position: fixed;
+      left: 0px;
+      right: 0px;
+      top: 0px;
+      bottom: 0px;
 }
+   </style>
+</head>
 
-rect {
-  stroke: #fff;
-  stroke-width: .1px;
-}
-
-</style>
 <body>
-<script src="d3/d3.min.js"></script>
-<script>
-var w = 960,
-    h = 1000,
-    z = 20,
-    x = w / z,
-    y = h/2 / z,
-    cushion = 20;
+  <div id="chart"></div>
 
-var svg = d3.select("body").append("svg")
-    .attr("width", w)
-    .attr("height", h);
+  <script>
 
-svg.selectAll("rect")
-    .data(d3.range(x * y))
-  .enter().append("rect")
-    .attr("transform", translate)
-    .attr("width", z)
-    .attr("height", z)
-    .style("fill", function(d) { return d3.hsl(d % x / x * 360, 1, Math.floor(d / x) / y); })
-    .on("mouseover", mouseover);
+   var chartDiv = document.getElementById("chart");
+   var svg = d3.select(chartDiv).append("svg");
+   var diameter = 20;
+   var width,height,circles_x,circles_y;
 
-function translate(d) {
-  return "translate(" + (d % x) * z + "," + Math.floor(d / x) * z + ")";
-}
+   function redraw(){
 
-function mouseover(d) {
-  child = this.parentNode.appendChild(this);
 
-  d3.select(this)
-      .style("pointer-events", "none")
-    .transition()
-      .duration(1500)
-      .attr("transform", pick_side_translate(this))
-      .on("end", function(){ console.log("first end")})
-    .transition()
-      .delay(1500)
-      .attr("transform", translate(d))//"translate(240,240)scale(0)")
-      //.style("fill-opacity", 100)
-      .on("end", function(){
-        console.log("second end");   
-        d3.select(this)
-          .style("pointer-events", "all")
-          .style("mouseover",function(){console.log("fuckme")});
-        })
+         // Extract the width and height that was computed by CSS.
+         width = chartDiv.clientWidth;
+         height = chartDiv.clientHeight;
+         circles_x = Math.floor(width/diameter) //get number of circles that can fit across
+         circles_y = Math.floor(height/diameter) //and number of circles down
 
-      //.on("end", enable_mouseover(this))
+         // Use the extracted size to set the size of an SVG element.
+         svg
+         .attr("width", width)
+         .attr("height", height);
 
-      /*.remove()
-    .transition()
-      .duration(800)
-      .attr("transform", translate(d))*/
+         svg.selectAll("*").remove()
 
-}
-function pick_side_translate(x){
-    var coord = x.getBoundingClientRect()
-    console.log("left coord" + coord.left)
+         svg.selectAll("circle")
+            .data(d3.range(circles_x * circles_y))
+            .enter()
+            .append("circle")
+            .attr("transform", function translate(d,i){
+               return "translate(" + (diameter * (d % circles_x) + diameter) + "," + (Math.floor(d/circles_x) * diameter + diameter) + ")"
+            })
+            .attr("fill", "black")
+            .attr("r", diameter/2)
+            .attr("stroke", "orange")
+            .attr("stroke-width", 3)
+            .style("pointer-events", "all")
+            .on("click", function(d,i){
+               circle_clicked(d, i, this, "red", d3.select(this).attr("fill"));
+            })    
+      }   
+      // Draw for the first time to initialize.
+      redraw();
+      // Redraw based on the new size whenever the browser window is resized.
+      window.addEventListener("resize", redraw);
+   
+      function circle_clicked(d,index,elem,new_color,old_color){
+         d3.select(elem)
+            .attr("fill",new_color)
+         wave(index,new_color, old_color);
 
-    if (coord.left < w/2){
-      return "translate(" + 0 + "," + (h-cushion) + ")scale(22)rotate(270)"
-    }
-    else{
-      return "translate(" + w + "," + (h-cushion) + ")scale(22)rotate(180)"
-    }
-}
-/*function enable_mouseover(rect){
-  console.log("happened already")
-  d3.select(rect).style("pointer-events", null)
+         for(var q = 0; q<1000; q++){
+            console.log("loop wave with index " + q)
+            wave(q,new_color,old_color)
+      
+         }
 
-}*/
-</script>
+      }
+      function wave(index,new_color,old_color){
+         svg.selectAll("circle")
+            .each(function (d, i){  //get current element
+            if (index == i && d3.select(this).attr("fill") == old_color){
+               var adjacent_indices = get_adjacent_indices(i);       //get indices to test
+               console.log(adjacent_indices);
+               for (var z = 0; z < adjacent_indices.length; z++){ 
+                  svg.selectAll("circle")
+                     .each(function (d,i) { 
+                        if (i == adjacent_indices[z]){
+                           d3.select(this)
+                           .transition()
+                           .delay(500)
+                           .attr("fill",new_color)
+                        }
+                     })
+               }
+
+               /*if(adjacent_indices[z] == i && {    //test them here as well as the original color
+                  d3.select(this)
+                  .attr("fill", new_color)
+               }*/
+            }  
+         })
+      }
+      //returns the indices above, right, below, and left (if available)
+      //basically, all indices that need to be checked against
+      function get_adjacent_indices(index){
+         var indices = []
+         //if not on the far left, get the left
+         if (index % circles_x > 0) {
+            indices.push(index-1);
+         }
+         console.log(index % circles_x )
+         if (index % circles_x < circles_x-1 ){
+            indices.push(index+1);
+         } 
+         if (Math.ceil(index/circles_y) > 0) {
+            indices.push(index-circles_x);
+         }
+         if (Math.ceil(index/circles_y) < circles_y ){
+            indices.push(index+circles_x);
+         } 
+         indices.push(index)
+         return indices
+
+      }
+      /*function wave(d,i){
+         console.log("test")
+         svg.selectAll("circle")
+         .transition()
+            .attr("fill",function() {
+                return "hsl(" + Math.random() * 360 + ",100%,50%)";
+            })
+         }*/
+   </script>
+   </body>
+   </html>
