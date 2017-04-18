@@ -13,7 +13,10 @@
       right: 0px;
       top: 0px;
       bottom: 0px;
-}
+   }  
+   svg{
+      background: black
+   }
    </style>
 </head>
 
@@ -50,12 +53,12 @@
             .attr("transform", function translate(d,i){
                return "translate(" + (diameter * (d % circles_x) + diameter) + "," + (Math.floor(d/circles_x) * diameter + diameter) + ")"
             })
-            .attr("fill", "black")
+            .attr("fill", "white")
             .attr("r", diameter/2)
-            .attr("stroke", "orange")
-            .attr("stroke-width", 3)
+            .attr("stroke", "black")
+            .attr("stroke-width", 2)
             .style("pointer-events", "all")
-            .on("click", function(d,i){
+            .on("mouseover", function(d,i){
                circle_clicked(d, i, this, "red", d3.select(this).attr("fill"));
             })    
       }   
@@ -141,7 +144,7 @@
                if (i == index){
                   d3.select(this)
                   .transition()
-                  .delay(function(d,i) {return (delay_order*100)})
+                  .delay(function(d,i) {return (delay_order*30)})
                   //.attr("duration", function() {return delay_order*1000})
                   .attr("fill", new_color)
                }
