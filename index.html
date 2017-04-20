@@ -51,7 +51,7 @@
             .append("circle")
             .attr("transform", function translate(d,i){
                return "translate(" + (diameter * (d % circles_x) + diameter) + "," + (Math.floor(d/circles_x) * diameter + diameter) + ")"
-            })
+            }) 
             .attr("fill", "white")
             .attr("r", diameter/2)
             .attr("stroke", "black")
