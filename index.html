@@ -27,7 +27,7 @@
 
    var chartDiv = document.getElementById("chart");
    var svg = d3.select(chartDiv).append("svg");
-   var diameter = 25;
+   var diameter = 20;
    var width,height,circles_x,circles_y;
    var node_index_queue = []
    function redraw(){
@@ -57,6 +57,7 @@
             .attr("r", diameter/2)
             .attr("stroke", "black")
             .attr("stroke-width", 2)
+            //.attr("id", function (d,i) { return "i" + i})
             .style("pointer-events", "all")
             .on("click", function(d,i){
                circle_clicked(d, i, d3.select(this).attr("fill") );
@@ -67,82 +68,90 @@
       // Redraw based on the new size whenever the browser window is resized.
       window.addEventListener("resize", redraw);
       
-      function circle_clicked(d,index,old_color){        
-         node_index_queue.push(index)
+      function circle_clicked(d,index,old_color){
+         var visited = new Array(circles_x * circles_y) 
          var new_color = "rgb(" + Math.floor(Math.random() * 255) + "," +
             Math.floor(Math.random() * 255) + "," +
             Math.floor(Math.random() * 255) + ")"
-
-
-         //.attr("fill",function(d,i){return color(i);});
+         //return
+         node_index_queue.push(index)
+         visited[index] = 0  
          var delay_order = 0
+
          while (node_index_queue.length < d3.selectAll("circle").size()){ //begin our wave
-            get_adjacent_nodes(node_index_queue[delay_order],old_color)
+            //initialize_arr(visited);       
+            get_adjacent_nodes(node_index_queue[delay_order],old_color, visited, delay_order)
             //if (delay_order > 10) return;
             delay_order++
-
+            //console.log(delay_order)
          }
-         color_all_nodes(new_color)
+         
+         color_all_nodes(new_color,visited)
+         
+         //cleanup
+         node_index_queue = [] 
+         visited = []
       }
+
       //returns the indices above, right, below, and left (if available)
       //basically, all indices that need to be checked against
-      function get_adjacent_nodes(index,old_color){
+      function get_adjacent_nodes(index,old_color, visited, delay_order) {
          //if not on the far left, get the left
          if (index % circles_x > 0) {
-            maybe_push(index-1)
+            maybe_push(index-1,visited,delay_order)
          }
          if (index % circles_x < circles_x - 1 ){
-            maybe_push(index+1)
+            maybe_push(index+1,visited,delay_order)
          } 
-
          //----------------------------------------------------------------
-
          if (Math.floor(index / circles_x) > 0) {
-            maybe_push(index - circles_x);
+            maybe_push(index - circles_x,visited,delay_order);
          }
          if (Math.floor(index / circles_x) < circles_y - 1) {
-            maybe_push(index + circles_x);
+            maybe_push(index + circles_x,visited, delay_order);
          }
       }
-      function maybe_push(index){
+      //if the node hasn't been 
+      function maybe_push(index,visited,delay_order){
 
-         for(i = 0; i<node_index_queue.length; i++){
+         /*for(i = 0; i<node_index_queue.length; i++){
             if (node_index_queue[i] == index){
                return
             }
+         }*/
+
+         if (visited[index] == undefined || visited[index] == null){
+            node_index_queue.push(index)
+            visited[index] = delay_order
          }
-         node_index_queue.push(index)
 
       }
 
-      function color_all_nodes(new_color){
+      function color_all_nodes(new_color,visited){
+         //console.log ("made it")
          circles = svg.selectAll("circle")
-         for(i = 0; i<node_index_queue.length;i++){
+         //for(i = 0; i<node_index_queue.length;i++){
+            //console.log("i is " + i)
             circles.each 
                (function (d,x) {
-                  if (x == node_index_queue[i]){
+                  //if (x == node_index_queue[i]){
                      d3.select(this)
                      .transition()
                      .delay(function() {
-                        return Math.log(5 * i) * 500
+                        //console.log (Math.log(5 * visited[x]) * 500)
+                        return Math.log(2 * visited[x]) * 500 - 500
                      })
                      .attr("fill", new_color)
-                  }
+                  //}
                })
 
+         //}
+      }
+      function initialize_arr(visited){
+         for (i = 0;i<visited.length; i++){
+            console.log( visited[i])
          }
       }
-      /*function color_node_from_index(index,new_color,delay_order){
-         svg.selectAll("circle")
-            .each(function (d,i) { 
-               if (i == index){
-                  d3.select(this)
-                  .transition()
-                  .delay(function(d,i) {return (delay_order*100)})
-                  .attr("fill", new_color)
-               }
-            })
-      }*/
 
 
    </script>
